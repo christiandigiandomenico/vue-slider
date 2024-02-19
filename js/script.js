@@ -4,8 +4,6 @@ createApp({
     data() {
         return {
 
-            message: "Ciao",
-
             activeSlideIndex: 0,
 
             slides: [
@@ -55,6 +53,18 @@ createApp({
             console.log(index)
             this.activeSlideIndex = index
         },
+
+        setSlides() {
+            setInterval(() => {
+
+                this.activeSlideIndex++;
+
+                if (this.activeSlideIndex >= this.slides.length) {
+                    this.activeSlideIndex = 0
+                }
+
+            }, 3000)
+        }
 
     }
 }).mount('#app');

@@ -16,17 +16,12 @@
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
-                    <img v-for="(currentImage, index) in slides" :src="currentImage.image"
-                        :alt="'Immagine ' + (index + 1)" v-show="index == activeSlideIndex" />
+                <div v-for="(currentImage, index) in slides" v-show="index == activeSlideIndex" class="item">
+                    <img :src="currentImage.image" :alt="'Immagine ' + (index + 1)" />
                     <div class="text">
-                        <h3>Titolo</h3>
+                        <h3>{{currentImage.title}}</h3>
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum
-                            suscipit
-                            tempore aliquid deleniti aut
-                            veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
-                            corporis.
+                            {{currentImage.text}}
                         </p>
                     </div>
                 </div>
@@ -34,7 +29,8 @@
                 <div class="thumbs">
                     <div @click="prevSlide()" class="prev"></div>
                     <div @click="nextSlide()" class="next"></div>
-                    <div v-for="(currentImage, index) in slides" class="thumb">
+                    <div v-for="(currentImage, index) in slides" class="thumb"
+                        :class=" index == activeSlideIndex ? 'active' : '' ">
 
                         <img @click="changeSlide(index)" :src="currentImage.image" :alt="'Immagine ' + (index + 1)">
 
