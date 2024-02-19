@@ -55,7 +55,7 @@ createApp({
         },
 
         setSlides() {
-            this.setSlides = setInterval(() => {
+            this.timerSlides = setInterval(() => {
 
                 this.nextSlide()
 
@@ -63,8 +63,7 @@ createApp({
         },
 
         stopAutoplay() {
-            console.log("stop")
-            clearInterval(this.setSlides)
+            clearInterval(this.timerSlides)
         }
 
     },
